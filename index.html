@@ -27,7 +27,8 @@ var featureLayer = L.mapbox.featureLayer()
     .loadURL('json/cp_arg.json')
     .addTo(map);
 
-featureLayer.eachLayer(function(layer) {
+
+featureLayer.on('ready', function(layer) {
 
     // here you call `bindPopup` with a string of HTML you create - the feature
     // properties declared above are available under `layer.feature.properties`
