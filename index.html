@@ -21,16 +21,17 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoidmxhc3ZsYXN2bGFzIiwiYSI6IjNzYjVwUW8ifQ.2fZ8qX
 var map = L.mapbox.map('map', 'vlasvlasvlas.l2pn5ceo')
     .setView([-40.914,-70.356], 5);
 
-    var featureLayer = L.mapbox.featureLayer()
+
+
+var featureLayer = L.mapbox.featureLayer()
     .loadURL('json/cp_arg.json')
     .addTo(map);
-
 
 featureLayer.eachLayer(function(layer) {
 
     // here you call `bindPopup` with a string of HTML you create - the feature
     // properties declared above are available under `layer.feature.properties`
-    var content = '<h2>A ferry ride!<\/h2>' +
+    var content = '<h2>Info<\/h2>' +
         '<p>Localidad: ' + layer.feature.properties.name_depto + '<br \/>' +
         'CP: ' + layer.feature.properties.postal + '<\/p>';
     layer.bindPopup(content);
