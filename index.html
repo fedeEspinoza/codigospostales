@@ -17,6 +17,12 @@
 L.mapbox.accessToken = 'pk.eyJ1Ijoidmxhc3ZsYXN2bGFzIiwiYSI6IjNzYjVwUW8ifQ.2fZ8qXtFkV6exkl2l9pM2g';
 var map = L.mapbox.map('map', 'vlasvlasvlas.l2l1jg26')
     .setView([[-40.914,-70.356], 5], 5);
+    
+var featureLayer = L.mapbox.featureLayer()
+    .loadURL('/json/cp_arg.json')
+    .addTo(map);
+    
+    
 </script>
 </body>
 </html>
