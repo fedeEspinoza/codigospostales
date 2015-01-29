@@ -15,12 +15,35 @@
 <div id='map'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoidmxhc3ZsYXN2bGFzIiwiYSI6IjNzYjVwUW8ifQ.2fZ8qXtFkV6exkl2l9pM2g';
+
+var url = 'http://vlasvlasvlas.github.io/codigospostales/json/cp_arg.json';
+
+
 var map = L.mapbox.map('map', 'vlasvlasvlas.l2l1jg26')
     .setView([[-40.914,-70.356], 5], 5);
     
-var featureLayer = L.mapbox.featureLayer()
-    .loadURL('/json/cp_arg.json')
-    .addTo(map);
+unction load() {
+  // Fetch just the contents of a .geojson file from GitHub by passing
+  // `application/vnd.github.v3.raw` to the Accept header
+  // As with any other AJAX request, this technique is subject to the Same Origin Policy:
+  // http://en.wikipedia.org/wiki/Same_origin_policy the server delivering the request should support CORS.
+  $.ajax({
+    headers: {
+      'Accept': 'application/vnd.github.v3.raw'
+    },
+    xhrFields: {
+      withCredentials: false
+    },
+    dataType: 'json',
+    url: url,
+    success: function(geojson) {
+        // On success add fetched data to the map.
+        L.mapbox.featureLayer(geojson).addTo(map);
+    }
+  });
+}
+
+$(load);
     
     
 </script>
