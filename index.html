@@ -24,7 +24,9 @@ var map = L.mapbox.map('map', 'vlasvlasvlas.l2pn5ceo')
     var featureLayer = L.mapbox.featureLayer()
     .loadURL('json/cp_arg.json')
     .addTo(map);
-    
+
+map.legendControl.addLegend('<strong>Códigos postales de la República Argentina.</strong>');
+
 </script>
 </body>
 </html>
