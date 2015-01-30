@@ -71,7 +71,7 @@ color: #555;
 function onEachFeature(feature, layer) {
     // does this feature have a property named popupContent?
     if (feature.properties && feature.properties.name_depto && feature.properties.postal) {
-        layer.bindPopup('Localidad : '+feature.properties.name_depto+'<br>'+'CP : '+feature.properties.postal);
+        layer.bindPopup('Provincia : '+feature.properties.name_prov+'<br>'+'Localidad : '+feature.properties.name_depto+'<br>'+'CP : '+feature.properties.postal);
     }
 }
 
