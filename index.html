@@ -104,10 +104,13 @@ layers: [baseLayer,jsonTest]
 		
 //Control Zoom, arriba de capas. No se mueve mas
 map.addControl( L.control.zoom({position: 'topright'}) );			
-/////////////TOTEM: gas			
+
+
+var baseLayers = {
 "Base 1": baseLayer,
 "Base 2": midnight,
 "Satelital": baseLayerraster
+}
 
 
 var overlayLayers = {
