@@ -77,7 +77,7 @@ function onEachFeature(feature, layer) {
 
 
 var LocalidadesEstilo = {
-    "color": "#85E0F2",
+    "color": "#7BADED",
     "fillOpacity":0,
     "weight": 3,
     "opacity": 0.5
@@ -85,7 +85,11 @@ var LocalidadesEstilo = {
 
 var jsonTest = new L.GeoJSON.AJAX("json/cp_arg.json",{onEachFeature:onEachFeature, style: LocalidadesEstilo});
 
+
 baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png');
+midnight = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png');
+baseLayerraster = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png');
+
 
 
 
@@ -101,9 +105,10 @@ layers: [baseLayer,jsonTest]
 //Control Zoom, arriba de capas. No se mueve mas
 map.addControl( L.control.zoom({position: 'topright'}) );			
 /////////////TOTEM: gas			
-var baseLayers = {
-"Base": baseLayer
-}
+"Base 1": baseLayer,
+"Base 2": midnight,
+"Satelital": baseLayerraster
+
 
 var overlayLayers = {
 "Códigos Postales por Localidad": jsonTest
