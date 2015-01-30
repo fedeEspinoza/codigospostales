@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet Quick Start Guide Example</title>
+	<title>Polígonos de códigos postales de la República Argentina</title>
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,32 @@ layers: [baseLayer,jsonTest]
 });
 
 
+			
 
+//Control Zoom, arriba de capas. No se mueve mas
+map.addControl( L.control.zoom({position: 'topright'}) );			
+/////////////TOTEM: gas			
+var baseLayers = {
+"Base": baseLayer
+}
+
+var overlayLayers = {
+"Códigos Postales por Localidad": jsonTest
+}
+
+L.control.layers(baseLayers,overlayLayers).addTo(map);
+
+
+
+map.addControl( L.control.scale({position: 'bottomleft'}) );	
+
+legend0 = L.control({position: 'topleft'});
+	legend0.onAdd = function (map) {
+	// loop through our density intervals and generate a label with a colored square for each interval
+	div.innerHTML +="<span style='font-size:20px;font-weight:bold;'>Códigos postales por Localidad<br>República Argentina</span>";
+	return div;
+	};
+	legend0.addTo(map);
 
 
 	</script>
