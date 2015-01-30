@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
 </head>
 <body>
-	<div id="map" style="width: 100%; height: 100%;"></div>
+	<div id="map" style="height: 99%; width:100%" ></div>
+
 
 	<script src="http://leafletjs.com/dist/leaflet.js"></script>
 	
@@ -43,9 +44,9 @@ baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Wor
 
 
 map = L.map('map', {
-zoomControl:false,
-center: [-33.9337063448206,-59.4927507103307],
-zoom: 1,
+zoomControl:true,
+center: [[-40.914,-70.356],
+zoom: 5,
 layers: [baseLayer,jsonTest]
 });
 
