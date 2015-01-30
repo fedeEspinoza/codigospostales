@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Polígonos de códigos postales (4 dígitos) de la República Argentina</title>
+	
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
-
 
 	<script src="http://leafletjs.com/dist/leaflet.js"></script>
 	
@@ -24,8 +23,6 @@ display: inline;
 padding-right: 9px;
 clear: both;
 }
-
-
 .info {
 padding: 6px 8px;
 font: 12px/14px Arial, Helvetica, sans-serif;
@@ -34,39 +31,31 @@ background: rgba(255,255,255,0.8);
 box-shadow: 0 0 15px rgba(0,0,0,0.2);
 border-radius: 5px;
 }
-
-
 .legend {
 text-align: left;
 line-height: 18px;
 color: #555;
 }
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100%;
+}
 
-
-        body {
-            padding: 0;
-            margin: 0;
-        }
-        html, body, #map {
-            height: 100%;
-            width: 100%;
-        }
-
-    
 </style>
-	
-	
+
 </head>
+
 <body>
+
 <div id="map"></div>
 
-
-
 	
 	
-	
-	<script>
-
+<script>
 
 function onEachFeature(feature, layer) {
     // does this feature have a property named popupContent?
@@ -74,7 +63,6 @@ function onEachFeature(feature, layer) {
         layer.bindPopup('Provincia : '+feature.properties.name_prov+'<br>'+'Localidad : '+feature.properties.name_depto+'<br>'+'CP : '+feature.properties.postal);
     }
 }
-
 
 var LocalidadesEstilo = {
     "color": "#7BADED",
@@ -85,13 +73,9 @@ var LocalidadesEstilo = {
 
 var jsonTest = new L.GeoJSON.AJAX("json/cp_arg.json",{onEachFeature:onEachFeature, style: LocalidadesEstilo});
 
-
 baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png');
 midnight = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png');
 baseLayerraster = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png');
-
-
-
 
 map = L.map('map', {
 zoomControl:false,
@@ -100,11 +84,7 @@ zoom: 5,
 layers: [baseLayer,jsonTest]
 });
 
-
-		
-//Control Zoom, arriba de capas. No se mueve mas
 map.addControl( L.control.zoom({position: 'topright'}) );			
-
 
 var baseLayers = {
 "Base 1": baseLayer,
@@ -112,22 +92,13 @@ var baseLayers = {
 "Satelital": baseLayerraster
 }
 
-
 var overlayLayers = {
 "Códigos Postales por Localidad": jsonTest
 }
 
 L.control.layers(baseLayers,overlayLayers).addTo(map);
 
-
-
-
-
 map.addControl( L.control.scale({position: 'bottomleft'}) );	
-
-
-
-
 
 legend0 = L.control({position: 'topleft'});
 	legend0.onAdd = function (map) {
@@ -142,7 +113,8 @@ legend0 = L.control({position: 'topleft'});
 	};
 	legend0.addTo(map);
 
-
-	</script>
+	
+</script>
+	
 </body>
 </html>
