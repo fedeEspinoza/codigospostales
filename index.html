@@ -72,7 +72,7 @@ var LocalidadesEstilo = {
     "opacity": 0.5
 };
 
-var jsonTest = new L.GeoJSON.AJAX("json/cp_arg.json",{onEachFeature:onEachFeature, style: LocalidadesEstilo});
+var jsonTest = new L.GeoJSON.AJAX("https://drive.google.com/file/d/0BwxCEpfpW4q7RjVUUE02OHZDTWNHWnM2dUYyZkVId3RQNWZF/view?usp=sharing",{onEachFeature:onEachFeature, style: LocalidadesEstilo});
 
 baseLayer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png');
 midnight = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png');
